@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+<body>
+    <div class="container">
+        <h2>پروژه پیش بینی فرود موفق فالکون 9  spaceX</h2>
+        <form action="/predict" method="post">
+            <div class="input-group">
+                <label for="GridFins">GridFins:</label>
+                <input type="number" step="1" min="0" max="1" name="GridFins" required>
+            </div>
+            <div class="input-group">
+                <label for="Reused">Reused:</label>
+                <input type="number" step="1" min="0" max="1" name="Reused" required>
+            </div>
+            <div class="input-group">
+                <label for="Legs">Legs:</label>
+                <input type="number" step="1" min="0" max="1" name="Legs" required>
+            </div>
+            <div class="input-group">
+                <label for="PayloadMass">PayloadMass:</label>
+                <input type="number" step="1" min="100" max="200000" name="PayloadMass" required>
+            </div>
+
+            <div class="input-group">
+                <label for="Block">Block:</label>
+                <input type="number" step="1" min="1" max="5" name="Block" required>
+            </div>
+        
+            <div class="input-group">
+                <label for="ReusedCount">ReusedCount:</label>
+                <input type="number" step="1" min="1" max="6" name="ReusedCount" required>
+            </div>
+            
+           
+            <div class="input-group">
+                <label for="Orbit">Orbit:</label>
+                <select name="Orbit" required>
+                    <option value="Orbit_ES-L1">Orbit_ES-L1</option>
+                    <option value="Orbit_GEO">Orbit_GEO</option>
+                    <option value="Orbit_GTO">Orbit_GTO</option>
+                    <option value="Orbit_HEO">Orbit_HEO</option>
+                    <option value="Orbit_ISS">Orbit_ISS</option>
+                    <option value="Orbit_LEO">Orbit_LEO</option>
+                    <option value="Orbit_MEO">Orbit_MEO</option>
+                    <option value="Orbit_PO">Orbit_PO</option>
+                    <option value="Orbit_SO">Orbit_SO</option>
+                    <option value="Orbit_SSO">Orbit_SSO</option>
+                    <option value="Orbit_VLEO">Orbit_VLEO</option>
+                    <!-- Add more job titles as needed -->
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="LaunchSite">LaunchSite:</label>
+                <select name="LaunchSite" required>
+                    <option value="LaunchSite_VAFB SLC 4E">LaunchSite_VAFB SLC 4E</option>
+                    <option value="LaunchSite_KSC LC 39A">LaunchSite_KSC LC 39A</option>
+                    <option value="LaunchSite_CCAFS SLC 40">LaunchSite_CCAFS SLC 40</option>
+                    
+                    <!-- Add more job titles as needed -->
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="Outcome">Outcome:</label>
+                <select name="Outcome" required>
+                    <option value="Outcome_False ASDS">Outcome_False ASDS</option>
+                    <option value="Outcome_False Ocean">Outcome_False Ocean</option>
+                    <option value="Outcome_False RTLS">Outcome_False RTLS</option>
+                    <option value="Outcome_None ASDS">Outcome_None ASDS</option>
+                    <option value="Outcome_None None">Outcome_None None</option>
+                    <option value="Outcome_True ASDS">Outcome_True ASDS</option>
+                    <option value="Outcome_True Ocean">Outcome_True Ocean</option>
+                    <option value="Outcome_True RTLS">Outcome_True RTLS</option>
+                    
+                    <!-- Add more states as needed -->
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="LandingPad">LandingPad:</label>
+                <select name="LandingPad" required>
+                    <option value="LandingPad_5e9e3032383ecb267a34e7c7'">LandingPad_5e9e3032383ecb267a34e7c7'</option>
+                    <option value="LandingPad_5e9e3032383ecb554034e7c9">LandingPad_5e9e3032383ecb554034e7c9</option>
+                    <option value="LandingPad_5e9e3032383ecb6bb234e7ca">LandingPad_5e9e3032383ecb6bb234e7ca</option>
+                    <option value="LandingPad_5e9e3032383ecb761634e7cb">LandingPad_5e9e3032383ecb761634e7cb</option>
+                    
+                    
+                    <!-- Add more states as needed -->
+                </select>
+            </div>
+            
+            </div>
+
+            <input type="submit" value="پیش بینی موفقیت فرود ">
+        </form>
+        {% if prediction_text %}
+        <div class="result">
+            <p>{{ prediction_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
