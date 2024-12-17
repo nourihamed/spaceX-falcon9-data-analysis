@@ -8,5 +8,15 @@
 
 - Predicting this landing requires detailed analysis of rocket launch data, environmental conditions, and the technical specifications of the rocket.
 
-- Objective: To design accurate predictive models based on real-world data to improve the safety and efficiency of space missions. 
+- Objective: To design accurate predictive models based on real-world data to improve the safety and efficiency of space missions.
+
+### Team Members:
+
+Naser Nouri Hamed - Sophia Rezatab
+
+Mujtaba Iran Mehr - Maryam Sabourifard
+
+Esmaeil Parvin - Malika Rezat
+
+Mohammad Tehrani - Mehdi Khamda - Bita Abyar
 
